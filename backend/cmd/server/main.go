@@ -7,9 +7,13 @@ import (
 )
 
 func main() {
-	log.Println("Starting DockARR API on :8080")
 
-	if err := app.New().Run(); err != nil {
+	application, err := app.New()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if err := application.Run(); err != nil {
 		log.Fatal(err)
 	}
 }
