@@ -1,7 +1,17 @@
 package main
 
-import "github.com/z354prance/DockARR/backend/internal/app"
+import (
+	"log"
+
+	"github.com/z354prance/DockARR/backend/internal/router"
+)
 
 func main() {
-	app.New().Run()
+	r := router.New()
+
+	log.Println("Starting DockARR API on :8080")
+
+	if err := r.Run(":8080"); err != nil {
+		log.Fatal(err)
+	}
 }
